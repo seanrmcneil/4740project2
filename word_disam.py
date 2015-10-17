@@ -1,4 +1,4 @@
-#Molly and Sean words disambiguation
+from parser import access_dictionary
 
 VERB_WEIGHT = 1
 NOUN_WEIGHT = 1
@@ -6,13 +6,26 @@ PREPOSITION_WEIGHT = 1
 ADJECTIVE_WEIGHT = 1
 OTHER_WEIGHT = 1
 
+sentence = "this is activate add appear after now"
+
 
 #Takes a word and the sentence it is in and counts the number of similar words in each
 #of the word's different senses, in N words in front of and behind the word
 #Returns an array/ dictionary for each word sense's score
 def score_matching_words(word,sentence,N):
-	pass
+	sense_dict = access_dictionary(word)[1]
+	score_dict = {}
 
+	for key,value in sense_dict.iteritems():
+		for words in value.split(" "):
+			print words
+
+	sentence_array = sentence.split(" ")
+	target_index = sentence_array.index(word)
+	for ind_word in sentence_array[target_index-N: target_index+1+N]:
+		print ind_word
+
+score_matching_words("add", sentence, 1)
 
 
 #Takes a word and a sentence and returns a dictionary of each word N words away in either direction
@@ -20,6 +33,7 @@ def score_matching_words(word,sentence,N):
 #Will be used in scoring later to give word matches more or less points based on their part
 #of speech
 def part_of_speech_tagging(word,sentence,N):
+
 	pass
 
 
