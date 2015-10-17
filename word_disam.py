@@ -15,7 +15,7 @@ ADJECTIVE_WEIGHT = 1
 OTHER_WEIGHT = 1
 
 #sample sentence -- delete later
-sentence = "this is activate add appear after now"
+sentence = "this is activate oops add appear after now"
 
 #uses Dictionary.xml to return all senses of the word
 #returns a dictionary of senses with key: id number of the sense
@@ -41,6 +41,9 @@ def get_dict_senses(word):
 #returns the id of the best sense of the target word and best sense of the context word as well as the score
 def best_sense(target_word, context_word):
 	score = 0
+	#incase the word is not in the dictionary add here
+	best_target_sense = "null"
+	best_context_sense = "null"
 	for target_sense, target_definitions in get_dict_senses(target_word).iteritems():
 		target_word_set = target_definitions.split(" ")
 		for context_sense, context_definitions in get_dict_senses(context_word).iteritems():
@@ -63,10 +66,10 @@ def best_sense_entire_context(word,sentence,N):
 	context_words.remove(word)
 
 	for each_word in context_words:
-		print word, each_word
-		print best_sense(word, each_word)
+		return best_sense(word, each_word)
 
-best_sense_entire_context("add", sentence, 1)
+#test
+#best_sense_entire_context("add", sentence, 1)
 
 
 #Yo Molly-- I didn't implement score_matching_words() quite the way you wrote here because I don't think
