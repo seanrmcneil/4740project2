@@ -3,6 +3,12 @@ import xml.etree.ElementTree as ET
 tree = ET.parse('Dictionary.xml')
 root = tree.getroot()
 
+
+#import word net
+import nltk
+from nltk.corpus import wordnet as wn
+
+
 #to download python stemming package, type this in command line:
 #pip install stemming
 from stemming.porter2 import stem
@@ -44,17 +50,20 @@ def best_sense(target_word, context_word):
 	#incase the word is not in the dictionary add here
 	best_target_sense = "null"
 	best_context_sense = "null"
+	
 	for target_sense, target_definitions in get_dict_senses(target_word).iteritems():
 		target_word_set = target_definitions.split(" ")
 		for context_sense, context_definitions in get_dict_senses(context_word).iteritems():
 			context_word_set = context_definitions.split(" ")
-			overlap = len(set(target_word_set).intersection(context_word_set))
+			similar_words =  set(target_word_set).intersection(context_word_set)
+			overlap = len(similar_words)
 			if overlap >= score:
 				best_target_sense = target_sense
 				best_context_sense = context_sense
 				score = overlap
 	return (best_target_sense, best_context_sense, score)
 
+#best_sense("add", "activate")
 
 #Takes a word and the sentence and returns the id number of the highest senses of the context words
 #and target words for N words in front of and behind the word
@@ -71,11 +80,19 @@ def best_sense_entire_context(word,sentence,N):
 #test
 #best_sense_entire_context("add", sentence, 1)
 
+#returns the wordnet definitions of all of the synonyms of the sense
+def get_wordnet(word):
+	word_net_dict = {}
+	for each_word in wn.synsets(word):
+		word_net_dict[each_word] = each_word.definition()
+	return word_net_dict
+
+
 
 #Yo Molly-- I didn't implement score_matching_words() quite the way you wrote here because I don't think
 #that we need to keep track of the number of overlaps for each one, we just need to remember the one with the
 #most overlaps. But I could be wrong so I left the function in here. It will be easier to calculate with
-#what I did do though
+#what I did do though either way :)
 
 #Takes a word and the sentence it is in and counts the number of similar words in each
 #of the word's different senses, in N words in front of and behind the word
@@ -94,7 +111,7 @@ def part_of_speech_tagging(word,sentence,N):
 
 
 #Using Wordnet's semenatic similarity program (thanks wikipedia) compares the similarity
-#between the words and other words N away from thsi word in the sentence
+#between the words and other words N away from this word in the sentence
 def semantic_similarity(word,sentence,N):
 	pass
 
@@ -105,4 +122,5 @@ def semantic_similarity(word,sentence,N):
 #to match them
 def wordnet_to_class_dictionary(class_defs,wordnet_defs,word):
 	pass
+
 
