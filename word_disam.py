@@ -56,8 +56,10 @@ def get_wordnet(word):
 def best_sense(target_word, context_word):
 	score = 0
 	#incase the word is not in the dictionary add here
-	best_target_sense = "null"
-	best_context_sense = "null"
+	best_target_sense = ""
+	best_context_sense = ""
+
+	#get the sense of the words from Dictioonary.xml
 	target_dictionary = get_dict_senses(target_word)
 	context_dictionary = get_dict_senses(context_word)
 
@@ -67,14 +69,24 @@ def best_sense(target_word, context_word):
 	if not context_dictionary:
 		context_dictionary = get_wordnet(context_word)
 
-
+	#for each of the definitions of senses, split to array and compare words to each of the definitions of sense
+	# of the context word
 	for target_sense, target_definitions in target_dictionary.iteritems():
 		target_word_set = target_definitions.split(" ")
 		for context_sense, context_definitions in context_dictionary.iteritems():
 			context_word_set = context_definitions.split(" ")
 			similar_words =  set(target_word_set).intersection(context_word_set)
 			overlap = len(similar_words)
-			if overlap >= score:
+			consecutive_overlap = 0
+			if overlap >= 2:
+				for i in similar_words:
+					target_index = target_word_set.index(i)
+					context_index = context_word_set.index(i)
+					if target_index < len(target_word_set)-1 and context_index < len(context_word_set):
+						if target_word_set[target_index+1] == context_word_set[context_index+1]:
+							consecutive_overlap = consecutive_overlap +1
+			temp_score = overlap + consecutive_overlap
+			if temp_score >= score:
 				best_target_sense = target_sense
 				best_context_sense = context_sense
 				score = overlap
@@ -128,6 +140,7 @@ def semantic_similarity(word,sentence,N):
 	pass
 
 
+#Not sure this funciton is needed anymore either
 
 #In the problem set it said if we use wordnet we might have to find a way to fit its definitions
 #with the ones given in the class dictionary, so this is a function we'll have to do later
