@@ -21,7 +21,7 @@ ADJECTIVE_WEIGHT = 1
 OTHER_WEIGHT = 1
 
 #sample sentence -- delete later
-sentence = "this is activate oops add appear after now"
+sentence = "this is activate running add appear after now"
 
 #uses Dictionary.xml to return all senses of the word
 #returns a dictionary of senses with key: id number of the sense
@@ -78,9 +78,10 @@ def best_sense(target_word, context_word):
 				best_target_sense = target_sense
 				best_context_sense = context_sense
 				score = overlap
-	print (best_target_sense, best_context_sense, score)
+	return (best_target_sense, best_context_sense, score)
 
-best_sense("add", "running")
+#test
+#best_sense("running", "add")
 
 #Takes a word and the sentence and returns the id number of the highest senses of the context words
 #and target words for N words in front of and behind the word
