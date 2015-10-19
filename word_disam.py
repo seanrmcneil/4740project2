@@ -43,6 +43,14 @@ def get_dict_senses(word):
 	#can return the item later too if needed. ("word.pos")
 	return (sense_dict)
 
+#returns the wordnet definitions of all of the synonyms of the sense
+def get_wordnet(word):
+	word_net_dict = {}
+	for each_word in wn.synsets(word):
+		word_net_dict[each_word] = each_word.definition()
+	return word_net_dict
+
+
 #calculates the best sense of the target word compared to one other context word
 #returns the id of the best sense of the target word and best sense of the context word as well as the score
 def best_sense(target_word, context_word):
@@ -50,10 +58,19 @@ def best_sense(target_word, context_word):
 	#incase the word is not in the dictionary add here
 	best_target_sense = "null"
 	best_context_sense = "null"
-	
-	for target_sense, target_definitions in get_dict_senses(target_word).iteritems():
+	target_dictionary = get_dict_senses(target_word)
+	context_dictionary = get_dict_senses(context_word)
+
+	#if the word is not in Dictionary.xml, get it from Wordnet
+	if not target_dictionary:
+		target_dictionary = get_wordnet(target_word)
+	if not context_dictionary:
+		context_dictionary = get_wordnet(context_word)
+
+
+	for target_sense, target_definitions in target_dictionary.iteritems():
 		target_word_set = target_definitions.split(" ")
-		for context_sense, context_definitions in get_dict_senses(context_word).iteritems():
+		for context_sense, context_definitions in context_dictionary.iteritems():
 			context_word_set = context_definitions.split(" ")
 			similar_words =  set(target_word_set).intersection(context_word_set)
 			overlap = len(similar_words)
@@ -61,9 +78,9 @@ def best_sense(target_word, context_word):
 				best_target_sense = target_sense
 				best_context_sense = context_sense
 				score = overlap
-	return (best_target_sense, best_context_sense, score)
+	print (best_target_sense, best_context_sense, score)
 
-#best_sense("add", "activate")
+best_sense("add", "running")
 
 #Takes a word and the sentence and returns the id number of the highest senses of the context words
 #and target words for N words in front of and behind the word
@@ -80,12 +97,6 @@ def best_sense_entire_context(word,sentence,N):
 #test
 #best_sense_entire_context("add", sentence, 1)
 
-#returns the wordnet definitions of all of the synonyms of the sense
-def get_wordnet(word):
-	word_net_dict = {}
-	for each_word in wn.synsets(word):
-		word_net_dict[each_word] = each_word.definition()
-	return word_net_dict
 
 
 
