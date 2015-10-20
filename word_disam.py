@@ -48,9 +48,12 @@ def get_dict_senses(word):
 def get_wordnet(word):
 	word_net_dict = {}
 	for each_word in wn.synsets(word):
+
 		word_net_dict[each_word] = each_word.definition()
 	return word_net_dict
 
+#test
+#get_wordnet("running")
 
 #calculates the best sense of the target word compared to one other context word
 #returns the id of the best sense of the target word and best sense of the context word as well as the score
@@ -105,7 +108,7 @@ def best_sense(target_word, context_word):
 	return (best_target_sense, best_context_sense, score)
 
 #test
-#best_sense("activate", "add")
+#best_sense("add", "running")
 
 #Takes a word and the sentence and returns the id number of the highest senses of the context words
 #and target words for N words in front of and behind the word
@@ -121,10 +124,10 @@ def best_sense_entire_context(word,sentence,N):
 		scoring.extend(best_sense(word, each_word)[0])
 
 	sense_scoring = Counter(scoring)
-	print sense_scoring
+	return sense_scoring
 
 #test
-best_sense_entire_context("add", sentence, 1)
+#best_sense_entire_context("add", sentence, 1)
 
 
 
