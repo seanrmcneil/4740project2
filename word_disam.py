@@ -85,11 +85,20 @@ def best_sense(target_word, context_word):
 					if target_index < len(target_word_set)-1 and context_index < len(context_word_set):
 						if target_word_set[target_index+1] == context_word_set[context_index+1]:
 							consecutive_overlap = consecutive_overlap +1
+
+			#may want to change how much having a consecutive overlap is weighted
 			temp_score = overlap + consecutive_overlap
-			if temp_score >= score:
-				best_target_sense = target_sense
-				best_context_sense = context_sense
-				score = overlap
+			if temp_score > score:
+				best_target_sense = str(target_sense)
+				best_context_sense = str(context_sense)
+				score = temp_score
+
+			#if there are more than one best senses
+			if temp_score == score:
+				best_target_sense = str(best_target_sense)+ ' ' + str(target_sense)
+				best_context_sense = str(best_context_sense) + ' ' + str(context_sense)
+
+
 	return (best_target_sense, best_context_sense, score)
 
 #test
