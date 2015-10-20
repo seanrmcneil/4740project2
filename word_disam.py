@@ -57,8 +57,8 @@ def get_wordnet(word):
 def best_sense(target_word, context_word):
 	score = 0
 	#incase the word is not in the dictionary add here
-	best_target_sense = ""
-	best_context_sense = ""
+	best_target_sense = []
+	best_context_sense = []
 
 	#get the sense of the words from Dictioonary.xml
 	target_dictionary = get_dict_senses(target_word)
@@ -78,6 +78,8 @@ def best_sense(target_word, context_word):
 			context_word_set = context_definitions.split(" ")
 			similar_words =  set(target_word_set).intersection(context_word_set)
 			overlap = len(similar_words)
+
+			#if there is consecutive overlap, give additional weight to the score
 			consecutive_overlap = 0
 			if overlap >= 2:
 				for i in similar_words:
@@ -90,18 +92,20 @@ def best_sense(target_word, context_word):
 			#may want to change how much having a consecutive overlap is weighted
 			temp_score = overlap + consecutive_overlap
 
-			#Does not consider whether there are 2 equally scored best senses..
-			if temp_score >=score:
-				best_target_sense = str(target_sense)
-				best_context_sense = str(context_sense)
+			# if there are multiple best senses, add them to the array of best senses
+			if temp_score == score:
+				best_target_sense.extend([target_sense])
+				best_context_sense.extend([context_sense])
+
+			if temp_score > score:
+				best_target_sense = [target_sense]
+				best_context_sense = [context_sense]
 				score = temp_score
-
-
 
 	return (best_target_sense, best_context_sense, score)
 
 #test
-#best_sense("running", "add")
+#best_sense("activate", "add")
 
 #Takes a word and the sentence and returns the id number of the highest senses of the context words
 #and target words for N words in front of and behind the word
@@ -114,10 +118,11 @@ def best_sense_entire_context(word,sentence,N):
 
 	scoring = []
 	for each_word in context_words:
-		scoring.append(best_sense(word, each_word)[0])
+		scoring.extend(best_sense(word, each_word)[0])
 
 	sense_scoring = Counter(scoring)
-	return sense_scoring
+	print sense_scoring
+
 #test
 best_sense_entire_context("add", sentence, 1)
 
