@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 tree = ET.parse('Dictionary.xml')
 root = tree.getroot()
 
+from collections import Counter
 
 #import word net
 import nltk
@@ -82,21 +83,19 @@ def best_sense(target_word, context_word):
 				for i in similar_words:
 					target_index = target_word_set.index(i)
 					context_index = context_word_set.index(i)
-					if target_index < len(target_word_set)-1 and context_index < len(context_word_set):
+					if target_index < len(target_word_set)-1 and context_index < len(context_word_set)-1:
 						if target_word_set[target_index+1] == context_word_set[context_index+1]:
 							consecutive_overlap = consecutive_overlap +1
 
 			#may want to change how much having a consecutive overlap is weighted
 			temp_score = overlap + consecutive_overlap
-			if temp_score > score:
+
+			#Does not consider whether there are 2 equally scored best senses..
+			if temp_score >=score:
 				best_target_sense = str(target_sense)
 				best_context_sense = str(context_sense)
 				score = temp_score
 
-			#if there are more than one best senses
-			if temp_score == score:
-				best_target_sense = str(best_target_sense)+ ' ' + str(target_sense)
-				best_context_sense = str(best_context_sense) + ' ' + str(context_sense)
 
 
 	return (best_target_sense, best_context_sense, score)
@@ -113,11 +112,15 @@ def best_sense_entire_context(word,sentence,N):
 	#remove the target word from the context word set
 	context_words.remove(word)
 
+	scoring = []
 	for each_word in context_words:
-		return best_sense(word, each_word)
+		scoring.append(best_sense(word, each_word)[0])
 
+	sense_scoring = Counter(scoring)
+	return sense_scoring
 #test
-#best_sense_entire_context("add", sentence, 1)
+best_sense_entire_context("add", sentence, 1)
+
 
 
 
