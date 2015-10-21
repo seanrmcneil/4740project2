@@ -77,8 +77,10 @@ def best_sense(target_word, context_word):
 	# of the context word
 	for target_sense, target_definitions in target_dictionary.iteritems():
 		target_word_set = target_definitions.split(" ")
+		target_word_set = [stem(x) for x in target_word_set]
 		for context_sense, context_definitions in context_dictionary.iteritems():
 			context_word_set = context_definitions.split(" ")
+			context_word_set = [stem(x) for x in context_word_set]
 			similar_words =  set(target_word_set).intersection(context_word_set)
 			overlap = len(similar_words)
 
