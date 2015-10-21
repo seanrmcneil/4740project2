@@ -60,8 +60,8 @@ def get_wordnet(word):
 def best_sense(target_word, context_word):
 	score = 0
 	#incase the word is not in the dictionary add here
-	best_target_sense = []
-	best_context_sense = []
+	best_target_sense = {}
+	best_context_sense = {}
 
 	#get the sense of the words from Dictioonary.xml
 	target_dictionary = get_dict_senses(target_word)
@@ -97,15 +97,17 @@ def best_sense(target_word, context_word):
 
 			# if there are multiple best senses, add them to the array of best senses
 			if temp_score == score:
-				best_target_sense.extend([target_sense])
-				best_context_sense.extend([context_sense])
+				best_target_sense[target_sense] = temp_score
+				best_context_sense[context_sense] = temp_score
 
 			if temp_score > score:
-				best_target_sense = [target_sense]
-				best_context_sense = [context_sense]
+				best_target_sense = {}
+				best_context_sense = {}
+				best_target_sense[target_sense] = temp_score
+				best_context_sense[context_sense] = temp_score
 				score = temp_score
 
-	return (best_target_sense, best_context_sense, score)
+	return (best_target_sense, best_context_sense)
 
 #test
 #best_sense("add", "running")
@@ -119,12 +121,12 @@ def best_sense_entire_context(word,sentence,N):
 	#remove the target word from the context word set
 	context_words.remove(word)
 
-	scoring = []
+	scoring = {}
 	for each_word in context_words:
-		scoring.extend(best_sense(word, each_word)[0])
+		temp_scoring = Counter(best_sense(word, each_word)[0])
+		scoring = temp_scoring + Counter(scoring)
 
-	sense_scoring = Counter(scoring)
-	return sense_scoring
+	return scoring
 
 #test
 #best_sense_entire_context("add", sentence, 1)
