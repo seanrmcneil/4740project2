@@ -55,6 +55,10 @@ def get_wordnet(word):
 #test
 #get_wordnet("running")
 
+
+#Total score: (Number of overlaps in stememd definitions) + (Weighted score for each overlap based on part of speech) + (Similarity of words in 
+	#definition using wordnet's similarity function)
+
 #calculates the best sense of the target word compared to one other context word
 #returns the id of the best sense of the target word and best sense of the context word as well as the score
 def best_sense(target_word, context_word):
@@ -66,7 +70,6 @@ def best_sense(target_word, context_word):
 	#get the sense of the words from Dictioonary.xml
 	target_dictionary = get_dict_senses(target_word)
 	context_dictionary = get_dict_senses(context_word)
-
 	#if the word is not in Dictionary.xml, get it from Wordnet
 	if not target_dictionary:
 		target_dictionary = get_wordnet(target_word)
@@ -79,10 +82,17 @@ def best_sense(target_word, context_word):
 		target_word_set = target_definitions.split(" ")
 		target_word_set = [stem(x).lower() for x in target_word_set]
 		for context_sense, context_definitions in context_dictionary.iteritems():
+			#CHECKS FOR OVERLAPS IN THE TWO DEFINITIONS GIVEN THE STEMMED DEFINITIONS
 			context_word_set = context_definitions.split(" ")
 			context_word_set = [stem(x).lower() for x in context_word_set]
 			similar_words =  set(target_word_set).intersection(context_word_set)
 			overlap = len(similar_words)
+
+			#FOR EACH WORD IN OVERLAP WANT TO GO THROUGH AND WEIGH DIFFERENTLY TO ADD TO SCORE
+
+
+			#GO THROUGH AND CHECK SEMANTIC SIMILARITY OF ALL WORDS IN EACH DEFINITION
+			#semantic_similarity(target_word_set,context_word_set)
 
 			#if there is consecutive overlap, give additional weight to the score
 			consecutive_overlap = 0
@@ -94,6 +104,8 @@ def best_sense(target_word, context_word):
 						if target_word_set[target_index+1] == context_word_set[context_index+1]:
 							consecutive_overlap = consecutive_overlap +1
 
+
+			#We should divide the temporary score by the number of words in the definition
 			#may want to change how much having a consecutive overlap is weighted
 			temp_score = overlap + consecutive_overlap
 
@@ -111,8 +123,42 @@ def best_sense(target_word, context_word):
 
 	return (best_target_sense, best_context_sense)
 
+
+
+
+
+
+#Using Wordnet's semenatic similarity program compares the similarity
+#between two definitions
+#For each word sense, match the semantic similarity of the definitions (aka call this on each word)
+def semantic_similarity(word1_context_set, word2_context_set):
+	total= 0
+	for word1 in word1_context_set:
+		for word2 in word2_context_set:
+			nums = []
+			nums.append(word1.path_similarity(word2))
+			nums.append(word1.lch_similarity(word2))
+			nums.append(word1.wup_similarity(word2))
+			nums.append(word1.res_similarity(word2))
+			nums.append(word1.lin_similarity(word2))
+			nums.append(word1.jcn_similarity(word2))
+			for item in nums:
+				if item == None:
+					pass
+				else:
+					total += item
+	return total
+
+# def part_of_speech_weighting(word1_context_set):
+# 	total =0
+# 	for word1 in word1_context_set:
+# 		x = word1.pos.nn 
+# 		print x
+
+
+
 #test
-#best_sense("add", "running")
+#print best_sense("add", "running")
 
 #Takes a word and the sentence and returns the id number of the highest senses of the context words
 #and target words for N words in front of and behind the word
@@ -121,7 +167,7 @@ def best_sense_entire_context(word,sentence,N):
 	target_index = sentence_array.index(word)
 	context_words = sentence_array[target_index - N: target_index + 1 + N]
 	#remove the target word from the context word set
-	context_words.remove(word)
+	context_words.remove(word) #Want to later make sure we remove the specific incidence in case it comes up twice
 
 	scoring = {}
 	for each_word in context_words:
@@ -131,7 +177,6 @@ def best_sense_entire_context(word,sentence,N):
 	return scoring
 
 #test
-#best_sense_entire_context("add", sentence, 1)
 
 
 
@@ -158,11 +203,6 @@ def part_of_speech_tagging(word,sentence,N):
 
 
 
-#Using Wordnet's semenatic similarity program (thanks wikipedia) compares the similarity
-#between the words and other words N away from this word in the sentence
-def semantic_similarity(word,sentence,N):
-	pass
-
 
 #Not sure this funciton is needed anymore either
 
@@ -173,3 +213,15 @@ def wordnet_to_class_dictionary(class_defs,wordnet_defs,word):
 	pass
 
 
+
+
+if __name__ == '__main__':
+	f=open('output_file','w')
+	f.write("Id, Prediction\n")
+	sentences = []
+	for sentence in sentences:
+		words = [] #Words in the sentence
+		for word in words:
+			sense =best_sense_entire_context(word, sentence, 1) #Can change N here
+	f.close()
+	print best_sense_entire_context("add",sentence,2)
