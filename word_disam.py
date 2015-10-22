@@ -31,18 +31,20 @@ sentence = "this is activate running add appear after now"
 def get_dict_senses(word):
 	sense_dict = {}
 	item = {}
+	final_name = ""
 	for child in root:
 		name = child.get('item')
 		#name to the last -2 to not look for the pos
 		if name[:len(name)-2] == word:
 			item = child.attrib
+			final_name += name #Need this for writing to file
 			for sense in child.iter("sense"):
 				current_sense = sense.attrib
 				sense_key = current_sense["id"]
 				sense_value = current_sense["gloss"]
 				sense_dict[sense_key] = sense_value
 	#can return the item later too if needed. ("word.pos")
-	return (sense_dict)
+	return [final_name,sense_dict]
 
 #returns the wordnet definitions of all of the synonyms of the sense
 def get_wordnet(word):
@@ -66,13 +68,17 @@ def best_sense(target_word, context_word):
 	#incase the word is not in the dictionary add here
 	best_target_sense = {}
 	best_context_sense = {}
-
+	name = ""
 	#get the sense of the words from Dictioonary.xml
-	target_dictionary = get_dict_senses(target_word)
-	context_dictionary = get_dict_senses(context_word)
+	targ = get_dict_senses(target_word)
+	target_dictionary = targ[1]
+	context_dictionary = get_dict_senses(context_word)[1]
 	#if the word is not in Dictionary.xml, get it from Wordnet
 	if not target_dictionary:
 		target_dictionary = get_wordnet(target_word)
+		name += target_word
+	else:
+		name += targ[0]
 	if not context_dictionary:
 		context_dictionary = get_wordnet(context_word)
 
@@ -121,7 +127,7 @@ def best_sense(target_word, context_word):
 				best_context_sense[context_sense] = temp_score
 				score = temp_score
 
-	return (best_target_sense, best_context_sense)
+	return (best_target_sense, best_context_sense,name)
 
 
 
@@ -171,8 +177,11 @@ def best_sense_entire_context(word,sentence,N):
 
 	scoring = {}
 	for each_word in context_words:
-		temp_scoring = Counter(best_sense(word, each_word)[0])
+		best = best_sense(word, each_word);
+		temp_scoring = Counter(best[0])
 		scoring = temp_scoring + Counter(scoring)
+		name = best[1]
+		print name
 
 	return scoring
 
