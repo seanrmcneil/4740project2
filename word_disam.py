@@ -3,6 +3,9 @@ import xml.etree.ElementTree as ET
 tree = ET.parse('Dictionary.xml')
 root = tree.getroot()
 
+tree2 = ET.parse('test-data.data')
+root2 = tree2.getroot()
+
 from collections import Counter
 
 #import word net
@@ -46,6 +49,20 @@ def get_dict_senses(word):
 	#can return the item later too if needed. ("word.pos")
 	return [final_name,sense_dict]
 
+def get_test_data():
+	test_dict = {}
+	for child in root2:
+		name = child.get('item')
+		for word in child.iter('instance'):
+			current = word.attrib
+			id1= current['id']
+			sentences = word[0].text
+			split = sentences.split(".")
+			test_dict[id1] = split;
+			
+	return test_dict
+
+
 #returns the wordnet definitions of all of the synonyms of the sense
 def get_wordnet(word):
 	word_net_dict = {}
@@ -81,7 +98,6 @@ def best_sense(target_word, context_word):
 		name += targ[0]
 	if not context_dictionary:
 		context_dictionary = get_wordnet(context_word)
-
 	#for each of the definitions of senses, split to array and compare words to each of the definitions of sense
 	# of the context word
 	for target_sense, target_definitions in target_dictionary.iteritems():
@@ -168,20 +184,21 @@ def semantic_similarity(word1_context_set, word2_context_set):
 
 #Takes a word and the sentence and returns the id number of the highest senses of the context words
 #and target words for N words in front of and behind the word
-def best_sense_entire_context(word,sentence,N):
+def best_sense_entire_context(word,sentence, f):
 	sentence_array = sentence.split(" ")
-	target_index = sentence_array.index(word)
-	context_words = sentence_array[target_index - N: target_index + 1 + N]
-	#remove the target word from the context word set
-	context_words.remove(word) #Want to later make sure we remove the specific incidence in case it comes up twice
-
+	# target_index = sentence_array.index(word)
+	# # context_words = sentence_array[target_index - N: target_index + 1 + N]
+	# #remove the target word from the context word set
+	# context_words = target_index
+	# context_words.remove(word) #Want to later make sure we remove the specific incidence in case it comes up twice
+	wordy = word.partition(".")[0]
+#	print wordy
 	scoring = {}
-	for each_word in context_words:
-		best = best_sense(word, each_word);
+	for each_word in sentence_array:
+		best = best_sense(wordy, each_word);
 		temp_scoring = Counter(best[0])
 		scoring = temp_scoring + Counter(scoring)
-		name = best[1]
-		print name
+		name = best[2]
 
 	return scoring
 
@@ -225,12 +242,29 @@ def wordnet_to_class_dictionary(class_defs,wordnet_defs,word):
 
 
 if __name__ == '__main__':
+	data = get_test_data()
 	f=open('output_file','w')
 	f.write("Id, Prediction\n")
-	sentences = []
-	for sentence in sentences:
-		words = [] #Words in the sentence
-		for word in words:
-			sense =best_sense_entire_context(word, sentence, 1) #Can change N here
+	for word in data:
+		scoring = {}
+		for sentence in data[word]:
+			sense =best_sense_entire_context(word, sentence, f) #Can change N here
+			for item in sense:
+				if item in scoring:
+					scoring[item] = scoring[item] + sense[item]
+				else:
+					scoring[item] = sense[item]
+		top_score = 0
+		finals = []
+		for item in scoring:
+			if scoring[item] >= top_score:
+				top_score = scoring[item]
+		for item in scoring:
+			if scoring[item] == top_score:
+				finals.append(item)
+		top_matches = ""
+		for index, val in enumerate(finals):
+			top_matches += val + " "
+		final_name = word + "," + top_matches + "\n"
+		f.write(final_name)
 	f.close()
-	print best_sense_entire_context("add",sentence,2)
