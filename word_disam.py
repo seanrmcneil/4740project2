@@ -1,6 +1,6 @@
 #import this for parsing the Dictionary.xml file
 import xml.etree.ElementTree as ET
-tree = ET.parse('Dictionary.xml')
+tree = ET.parse('Dictionary_wordnet.xml')
 root = tree.getroot()
 
 tree2 = ET.parse('test-data.data')
@@ -38,7 +38,7 @@ def get_dict_senses(word):
 	for child in root:
 		name = child.get('item')
 		#name to the last -2 to not look for the pos
-		if name[:len(name)-2] == word:
+		if name == word:
 			item = child.attrib
 			final_name += name #Need this for writing to file
 			for sense in child.iter("sense"):
@@ -129,7 +129,7 @@ def best_sense(target_word, context_word):
 
 			#We should divide the temporary score by the number of words in the definition
 			#may want to change how much having a consecutive overlap is weighted
-			temp_score = overlap + consecutive_overlap
+			temp_score = float(overlap + consecutive_overlap)/float(len(target_word))
 
 			# if there are multiple best senses, add them to the array of best senses
 			if temp_score == score:
@@ -143,7 +143,7 @@ def best_sense(target_word, context_word):
 				best_context_sense[context_sense] = temp_score
 				score = temp_score
 
-	return (best_target_sense, best_context_sense,name)
+	return (best_target_sense, best_context_sense,name,target_dictionary)
 
 
 
@@ -191,16 +191,24 @@ def best_sense_entire_context(word,sentence, f):
 	# #remove the target word from the context word set
 	# context_words = target_index
 	# context_words.remove(word) #Want to later make sure we remove the specific incidence in case it comes up twice
-	wordy = word.partition(".")[0]
-#	print wordy
+	wordy = word.partition(".")
+	word2 = wordy[2].partition(".")
+	final_word = wordy[0] + "." + word2[0]
 	scoring = {}
+
 	for each_word in sentence_array:
-		best = best_sense(wordy, each_word);
+		best = best_sense(final_word, each_word);
 		temp_scoring = Counter(best[0])
 		scoring = temp_scoring + Counter(scoring)
 		name = best[2]
-
-	return scoring
+	if not scoring:
+		targ = get_dict_senses(target_word)
+		dicty = {}
+		for item in targ:
+			dicty[item] = 1
+		return dicty
+	else:
+		return scoring
 
 #test
 
@@ -243,17 +251,19 @@ def wordnet_to_class_dictionary(class_defs,wordnet_defs,word):
 
 if __name__ == '__main__':
 	data = get_test_data()
-	f=open('output_file','w')
-	f.write("Id, Prediction\n")
+	f=open('output_file2','w')
+	f.write("Id,Prediction\n")
 	for word in data:
 		scoring = {}
+		short_word = word.partition(".")[0]
 		for sentence in data[word]:
-			sense =best_sense_entire_context(word, sentence, f) #Can change N here
-			for item in sense:
-				if item in scoring:
-					scoring[item] = scoring[item] + sense[item]
-				else:
-					scoring[item] = sense[item]
+			if short_word in sentence:
+				sense =best_sense_entire_context(word, sentence, f) #Can change N here
+				for item in sense:
+					if item in scoring:
+						scoring[item] = scoring[item] + sense[item]
+					else:
+						scoring[item] = sense[item]
 		top_score = 0
 		finals = []
 		for item in scoring:
