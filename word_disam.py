@@ -149,10 +149,6 @@ def best_sense(target_word, context_word):
 	return (best_target_sense, best_context_sense,name)
 
 
-
-
-
-
 #Using Wordnet's semenatic similarity program compares the similarity
 #between two definitions
 #For each word sense, match the semantic similarity of the definitions (aka call this on each word)
