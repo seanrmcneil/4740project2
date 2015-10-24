@@ -69,10 +69,11 @@ def get_test_data():
 
 			for context in sense.itertext():
 				full_context = full_context + context
-
 			test_data[id] = full_context
 
 	return test_data
+
+
 
 def get_training_data():
 	training_data = collections.OrderedDict()
@@ -94,7 +95,7 @@ def get_training_data():
 
 
 def get_training_answers():
-	answers = []
+	answers = ["Id,Prediction"]
 	for child in root3:
 		for sense in child:
 			id = sense.attrib['id']
@@ -235,6 +236,7 @@ def best_sense_entire_context(final_word,sentence,target_dictionary, N):
 
 if __name__ == '__main__':
 	data = get_test_data()
+	#data = get_training_data()
 	f=open('output_file11.txt','w')
 	f.write("Id,Prediction\n")
 	for word in data:
@@ -267,3 +269,4 @@ if __name__ == '__main__':
 		f.write(final_name)
 	f.close()
 	print "done"
+
