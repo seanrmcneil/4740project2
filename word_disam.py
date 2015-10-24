@@ -1,13 +1,13 @@
 #import this for parsing the Dictionary.xml file
 import xml.etree.ElementTree as ET
-tree = ET.parse('Dictionary_wordnet.xml')
+tree = ET.parse('Dictionary.xml')
 root = tree.getroot()
 
 tree2 = ET.parse('test-data.data')
 root2 = tree2.getroot()
 
 tree3 = ET.parse('training-data.data')
-root3 = tree3.getroot()
+training_root = tree3.getroot()
 
 from collections import Counter
 from nltk.corpus import wordnet as wn
@@ -54,6 +54,44 @@ def get_dict_senses(word):
 	#can return the item later too if needed. ("word.pos")
 	return [final_name,sense_dict]
 
+def get_test_data2():
+	test_data = collections.OrderedDict()
+	for child in root2:
+		for sense in child:
+			id = sense.attrib['id']
+			name = id.split(".")[0]
+			full_context = ""
+			for context in sense.iter('context'):
+				for head in context:
+					head.text = name
+
+			for context in sense.itertext():
+				full_context = full_context + context
+
+			test_data[id] = full_context
+
+	return test_data
+
+def get_training_data():
+	training_data = collections.OrderedDict()
+	for child in training_root:
+		for sense in child:
+			id = sense.attrib['id']
+			name = id.split(".")[0]
+			full_context = ""
+			for items in sense.iter('context'):
+				for head in items:
+					head.text = name
+					head.set('updated','yes')
+				for context in items.itertext():
+					full_context = full_context + context
+
+			training_data[id] = full_context
+
+	return training_data
+
+
+
 def get_test_data():
 	test_dict = collections.OrderedDict()
 	for child in root2:
@@ -67,6 +105,7 @@ def get_test_data():
 	#n_items = take(11, test_dict.iterkeys())
 	#print n_items
 	return test_dict
+
 
 
 #returns the wordnet definitions of all of the synonyms of the sense
@@ -189,7 +228,7 @@ def semantic_similarity(word1_context_set, word2_context_set):
 def best_sense_entire_context(word,sentence, f):
 	sentence_array = sentence.split(" ")
 	# target_index = sentence_array.index(word)
-	# # context_words = sentence_array[target_index - N: target_index + 1 + N]
+	# context_words = sentence_array[target_index - N: target_index + 1 + N]
 	# #remove the target word from the context word set
 	# context_words = target_index
 	# context_words.remove(word) #Want to later make sure we remove the specific incidence in case it comes up twice
