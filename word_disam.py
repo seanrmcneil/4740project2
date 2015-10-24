@@ -72,10 +72,25 @@ def get_test_data2():
 
 	return test_data
 
+def get_training_data():
+	training_data = collections.OrderedDict()
+	for child in training_root:
+		for sense in child:
+			id = sense.attrib['id']
+			name = id.split(".")[0]
+			full_context = ""
+			for items in sense.iter('context'):
+				for head in items:
+					head.text = name
+					head.set('updated','yes')
+				for context in items.itertext():
+					full_context = full_context + context
+
+			training_data[id] = full_context
+
+	return training_data
 
 
-
-get_test_data2()
 
 def get_test_data():
 	test_dict = collections.OrderedDict()
@@ -236,34 +251,34 @@ def best_sense_entire_context(word,sentence, f):
 	else:
 		return scoring
 
-#
-# if __name__ == '__main__':
-# 	data = get_test_data()
-# 	f=open('output_file2','w')
-# 	f.write("Id,Prediction\n")
-# 	for word in data:
-#
-# 		scoring = {}
-# 		short_word = word.partition(".")[0]
-# 		for sentence in data[word]:
-# 			if short_word in sentence:
-# 				sense =best_sense_entire_context(word, sentence, f) #Can change N here
-# 				for item in sense:
-# 					if item in scoring:
-# 						scoring[item] = scoring[item] + sense[item]
-# 					else:
-# 						scoring[item] = sense[item]
-# 		top_score = 0
-# 		finals = []
-# 		for item in scoring:
-# 			if scoring[item] >= top_score:
-# 				top_score = scoring[item]
-# 		for item in scoring:
-# 			if scoring[item] == top_score:
-# 				finals.append(item)
-# 		top_matches = ""
-# 		for index, val in enumerate(finals):
-# 			top_matches += val + " "
-# 		final_name = word + "," + top_matches + "\n"
-# 		f.write(final_name)
-# 	f.close()
+
+if __name__ == '__main__':
+	data = get_test_data()
+	f=open('output_file2','w')
+	f.write("Id,Prediction\n")
+	for word in data:
+
+		scoring = {}
+		short_word = word.partition(".")[0]
+		for sentence in data[word]:
+			if short_word in sentence:
+				sense =best_sense_entire_context(word, sentence, f) #Can change N here
+				for item in sense:
+					if item in scoring:
+						scoring[item] = scoring[item] + sense[item]
+					else:
+						scoring[item] = sense[item]
+		top_score = 0
+		finals = []
+		for item in scoring:
+			if scoring[item] >= top_score:
+				top_score = scoring[item]
+		for item in scoring:
+			if scoring[item] == top_score:
+				finals.append(item)
+		top_matches = ""
+		for index, val in enumerate(finals):
+			top_matches += val + " "
+		final_name = word + "," + top_matches + "\n"
+		f.write(final_name)
+	f.close()
