@@ -7,16 +7,20 @@ tree2 = ET.parse('test-data.data')
 root2 = tree2.getroot()
 
 from collections import Counter
-
-#import word net
-import nltk
 from nltk.corpus import wordnet as wn
-
-
 #to download python stemming package, type this in command line:
 #pip install stemming
 from stemming.porter2 import stem
-#run with stem(word)
+#pip install ordereddict
+import collections
+from ordereddict import OrderedDict
+
+#for testing purposes
+from itertools import islice
+def take(n, iterable):
+    "Return first n items of the iterable as a list"
+    return list(islice(iterable, n))
+
 
 VERB_WEIGHT = 1
 NOUN_WEIGHT = 1
@@ -27,10 +31,8 @@ OTHER_WEIGHT = 1
 #sample sentence -- delete later
 sentence = "this is activate running add appear after now"
 
-#uses Dictionary.xml to return all senses of the word
-#returns a dictionary of senses with key: id number of the sense
-#and value: the glossary definition of the word
-#dictionaries are empty if the word is not in the dictionary
+#uses Dictionary.xml to return all senses of the word returns a dictionary of senses with key: id number of the sense
+#and value: the glossary definition of the word dictionaries are empty if the word is not in the dictionary
 def get_dict_senses(word):
 	sense_dict = {}
 	item = {}
@@ -50,7 +52,7 @@ def get_dict_senses(word):
 	return [final_name,sense_dict]
 
 def get_test_data():
-	test_dict = {}
+	test_dict = collections.OrderedDict()
 	for child in root2:
 		name = child.get('item')
 		for word in child.iter('instance'):
@@ -59,7 +61,8 @@ def get_test_data():
 			sentences = word[0].text
 			split = sentences.split(".")
 			test_dict[id1] = split;
-			
+	#n_items = take(11, test_dict.iterkeys())
+	#print n_items
 	return test_dict
 
 
@@ -202,50 +205,13 @@ def best_sense_entire_context(word,sentence, f):
 
 	return scoring
 
-#test
-
-
-
-
-
-#Yo Molly-- I didn't implement score_matching_words() quite the way you wrote here because I don't think
-#that we need to keep track of the number of overlaps for each one, we just need to remember the one with the
-#most overlaps. But I could be wrong so I left the function in here. It will be easier to calculate with
-#what I did do though either way :)
-
-#Takes a word and the sentence it is in and counts the number of similar words in each
-#of the word's different senses, in N words in front of and behind the word
-#Returns an array/ dictionary for each word sense's score
-def score_matching_words(word,sentence,N):
-	pass
-
-#Takes a word and a sentence and returns a dictionary of each word N words away in either direction
-#and their weight depending on their part of speech
-#Will be used in scoring later to give word matches more or less points based on their part
-#of speech
-def part_of_speech_tagging(word,sentence,N):
-
-	pass
-
-
-
-
-#Not sure this funciton is needed anymore either
-
-#In the problem set it said if we use wordnet we might have to find a way to fit its definitions
-#with the ones given in the class dictionary, so this is a function we'll have to do later
-#to match them
-def wordnet_to_class_dictionary(class_defs,wordnet_defs,word):
-	pass
-
-
-
 
 if __name__ == '__main__':
 	data = get_test_data()
 	f=open('output_file','w')
 	f.write("Id, Prediction\n")
 	for word in data:
+
 		scoring = {}
 		for sentence in data[word]:
 			sense =best_sense_entire_context(word, sentence, f) #Can change N here
