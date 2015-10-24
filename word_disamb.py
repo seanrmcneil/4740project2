@@ -1,6 +1,6 @@
 #import this for parsing the Dictionary.xml file
 import xml.etree.ElementTree as ET
-tree = ET.parse('Dictionary_wordnet.xml')
+tree = ET.parse('Dictionary.xml')
 root = tree.getroot()
 
 tree2 = ET.parse('test-data.data')
@@ -73,6 +73,38 @@ def get_test_data():
 			test_data[id] = full_context
 
 	return test_data
+
+def get_training_data():
+	training_data = collections.OrderedDict()
+	for child in root3:
+		for sense in child:
+			id = sense.attrib['id']
+			name = id.split(".")[0]
+			full_context = ""
+			for items in sense.iter('context'):
+				for head in items:
+					head.text = name
+					head.set('updated','yes')
+				for context in items.itertext():
+					full_context = full_context + context
+
+			training_data[id] = full_context
+
+	return training_data
+
+
+def get_training_answers():
+	answers = []
+	for child in root3:
+		for sense in child:
+			id = sense.attrib['id']
+			name = id.split(".")[0]
+			senseid = ""
+			for items in sense.iter('answer'):
+				senseid = str((items.attrib['senseid'])) + " " + senseid
+			temp = str(id) + ',' + str(senseid)
+			answers.append(temp)
+	return answers
 
 
 #returns the wordnet definitions of all of the synonyms of the sense
