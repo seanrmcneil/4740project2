@@ -36,18 +36,18 @@
       <file leaf-file-name="word_disam.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/word_disam.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.85714287">
-              <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.83928573">
+              <caret line="72" column="10" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test-data.data" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test-data.data">
+      <file leaf-file-name="training-data.data" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/training-data.data">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1851852">
-              <caret line="27938" column="11" selection-start-line="27938" selection-start-column="11" selection-end-line="27938" selection-end-column="11" />
+            <state vertical-scroll-proportion="-8.518518">
+              <caret line="28403" column="91" selection-start-line="28403" selection-start-column="91" selection-end-line="28403" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -595,14 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/training-data.data">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6594595">
-          <caret line="28403" column="91" selection-start-line="28403" selection-start-column="91" selection-end-line="28403" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/output_file.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -635,10 +627,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/training-data.data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.518518">
+          <caret line="28403" column="91" selection-start-line="28403" selection-start-column="91" selection-end-line="28403" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/word_disam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85714287">
-          <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.83928573">
+          <caret line="72" column="10" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
           <folding />
         </state>
       </provider>
