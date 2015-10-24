@@ -6,6 +6,9 @@ root = tree.getroot()
 tree2 = ET.parse('test-data.data')
 root2 = tree2.getroot()
 
+tree3 = ET.parse('training-data.data')
+root3 = tree3.getroot()
+
 from collections import Counter
 from nltk.corpus import wordnet as wn
 #to download python stemming package, type this in command line:

@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dc1eeb4-daa7-4e90-b8bc-d84bca08afc3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/output_file.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output_file.txt" afterPath="$PROJECT_DIR$/output_file.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output_file" afterPath="$PROJECT_DIR$/output_file" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/training-data.data" afterPath="$PROJECT_DIR$/training-data.data" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/word_disam.py" afterPath="$PROJECT_DIR$/word_disam.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="4740project2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,18 +30,18 @@
       <file leaf-file-name="Dictionary.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dictionary.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="161.40741">
+            <state vertical-scroll-proportion="-155.0">
               <caret line="279" column="80" selection-start-line="279" selection-start-column="80" selection-end-line="279" selection-end-column="80" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="word_disam.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="word_disam.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/word_disam.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="18.62963">
-              <caret line="148" column="55" selection-start-line="148" selection-start-column="55" selection-end-line="148" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.11335012">
+              <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -48,18 +50,28 @@
       <file leaf-file-name="test-data.data" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test-data.data">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11903.333">
+            <state vertical-scroll-proportion="-11939.444">
               <caret line="21491" column="25" selection-start-line="21491" selection-start-column="25" selection-end-line="21491" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="output_file" pinned="false" current-in-tab="true">
+      <file leaf-file-name="output_file" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/output_file">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9292453">
-              <caret line="3934" column="28" selection-start-line="3934" selection-start-column="28" selection-end-line="3934" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="3" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="output_file.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output_file.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -77,6 +89,8 @@
         <option value="$PROJECT_DIR$/parser.py" />
         <option value="$PROJECT_DIR$/test-data.data" />
         <option value="$PROJECT_DIR$/output_file" />
+        <option value="$PROJECT_DIR$/output_file.txt" />
+        <option value="$PROJECT_DIR$/training-data.data" />
         <option value="$PROJECT_DIR$/word_disam.py" />
       </list>
     </option>
@@ -333,13 +347,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1262" height="709" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979855" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14665592" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14665592" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -523,13 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/training-data.data">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.382716">
-          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stemming/lovins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -544,34 +551,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/word_disam.py">
+    <entry file="file://$PROJECT_DIR$/output_file.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="18.62963">
-          <caret line="148" column="55" selection-start-line="148" selection-start-column="55" selection-end-line="148" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dictionary.xml">
+    <entry file="file://$PROJECT_DIR$/output_file.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="161.40741">
-          <caret line="279" column="80" selection-start-line="279" selection-start-column="80" selection-end-line="279" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test-data.data">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11903.333">
-          <caret line="21491" column="25" selection-start-line="21491" selection-start-column="25" selection-end-line="21491" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/output_file">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9292453">
-          <caret line="3934" column="28" selection-start-line="3934" selection-start-column="28" selection-end-line="3934" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="3" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/training-data.data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6594595">
+          <caret line="28403" column="91" selection-start-line="28403" selection-start-column="91" selection-end-line="28403" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-data.data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11939.444">
+          <caret line="21491" column="25" selection-start-line="21491" selection-start-column="25" selection-end-line="21491" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dictionary.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-155.0">
+          <caret line="279" column="80" selection-start-line="279" selection-start-column="80" selection-end-line="279" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/word_disam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11335012">
+          <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
           <folding />
         </state>
       </provider>
