@@ -256,7 +256,7 @@ def best_synsets(from_wordnet):
 if __name__ == '__main__':
 	data = get_test_data()
 	#data = get_training_data()
-	f=open('output_file5.txt','w')
+	f=open('output_file3.txt','w')
 	f.write("Id,Prediction\n")
 	for word in data:
 		wordy = word.partition(".")
@@ -264,7 +264,7 @@ if __name__ == '__main__':
 		final_word = wordy[0] + "." + word2[0]
 		target_dictionary = get_wordnet(wordy[0])
 		scoring = {}
-		sense =best_sense_entire_context(final_word, data[word], target_dictionary, 1) #Can change N here
+		sense =best_sense_entire_context(final_word, data[word], target_dictionary, 4) #Can change N here
 		for item in sense:
 			if item in scoring:
 				scoring[item] = scoring[item] + sense[item]
@@ -284,7 +284,8 @@ if __name__ == '__main__':
 			from_wordnet = from_wordnet + wordnet_to_reg(get_dict_senses(final_word), target_dictionary[item])
 		if len(from_wordnet) > 1:
 			#choose a top word by comparing the dictionary synonyms with wordnet synonyms for greatest overlap
-			top_matches += best_synsets(from_wordnet)
+			#top_matches += best_synsets(from_wordnet)
+			top_matches += random.choice(from_wordnet)
 		else:
 			top_matches += from_wordnet[0]
 		final_name = word + "," + top_matches + "\n"
