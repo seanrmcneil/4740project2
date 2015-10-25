@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dc1eeb4-daa7-4e90-b8bc-d84bca08afc3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/word_disam - Copy.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/word_disam.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/check_answers.py" afterPath="$PROJECT_DIR$/check_answers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/word_disamb.py" afterPath="$PROJECT_DIR$/word_disamb.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/readMe.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/output_file3.txt" afterPath="$PROJECT_DIR$/output_file3.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Old_attempts/word_disamb.py" afterPath="$PROJECT_DIR$/Old_attempts/word_disamb.py" />
     </list>
     <ignored path="4740project2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="word_disamb.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="word_disamb.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/word_disamb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3647059">
-              <caret line="158" column="61" selection-start-line="158" selection-start-column="61" selection-end-line="158" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="157" column="81" selection-start-line="157" selection-start-column="81" selection-end-line="157" selection-end-column="81" />
               <folding>
                 <marker date="1445789543000" expanded="true" signature="7760:9036" placeholder="..." />
               </folding>
@@ -49,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="check_answers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/check_answers.py">
+      <file leaf-file-name="readMe.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readMe.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.14117648">
+              <caret line="4" column="87" selection-start-line="4" selection-start-column="87" selection-end-line="4" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -81,6 +79,8 @@
         <option value="$PROJECT_DIR$/check_answers.py" />
         <option value="$PROJECT_DIR$/output_file2.txt" />
         <option value="$PROJECT_DIR$/word_disamb.py" />
+        <option value="$PROJECT_DIR$/Old_attempts/word_disamb.py" />
+        <option value="$PROJECT_DIR$/readMe.txt" />
       </list>
     </option>
   </component>
@@ -131,20 +131,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="4740project2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="4740project2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="4740project2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Old_attempts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -394,7 +380,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979855" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14030612" sideWeight="0.74613684" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14030612" sideWeight="0.74613684" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990307" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23350254" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -708,26 +694,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/check_answers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dictionary.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="279" column="80" selection-start-line="279" selection-start-column="80" selection-end-line="279" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Old_attempts/word_disamb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5058824">
-          <caret line="289" column="12" selection-start-line="289" selection-start-column="12" selection-end-line="289" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -740,13 +710,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Old_attempts/word_disamb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="9.070588">
+          <caret line="257" column="27" selection-start-line="257" selection-start-column="27" selection-end-line="257" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/check_answers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7882353">
+          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/word_disamb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3647059">
-          <caret line="158" column="61" selection-start-line="158" selection-start-column="61" selection-end-line="158" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="157" column="81" selection-start-line="157" selection-start-column="81" selection-end-line="157" selection-end-column="81" />
           <folding>
             <marker date="1445789543000" expanded="true" signature="7760:9036" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readMe.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14117648">
+          <caret line="4" column="87" selection-start-line="4" selection-start-column="87" selection-end-line="4" selection-end-column="87" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -253,14 +253,11 @@ def best_sense_entire_context(final_word,sentence,target_dictionary, N):
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
 	data = get_test_data2()
 	f=open('working3.txt','w')
-=======
-	data = get_test_data()
+	data = get_test_data2()
 	#data = get_training_data()
 	f=open('output_file11.txt','w')
->>>>>>> 08d1b668f4dda0c73a5d3d6b7aa8b59bc3888930
 	f.write("Id,Prediction\n")
 	for word in data:
 		wordy = word.partition(".")
