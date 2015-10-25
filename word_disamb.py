@@ -6,6 +6,7 @@ root = tree.getroot()
 tree2 = ET.parse('test-data.data')
 root2 = tree2.getroot()
 
+
 tree3 = ET.parse('training-data.data')
 root3 = tree3.getroot()
 
@@ -94,18 +95,6 @@ def get_training_data():
 	return training_data
 
 
-def get_training_answers():
-	answers = ["Id,Prediction"]
-	for child in root3:
-		for sense in child:
-			id = sense.attrib['id']
-			name = id.split(".")[0]
-			senseid = ""
-			for items in sense.iter('answer'):
-				senseid = str((items.attrib['senseid'])) + " " + senseid
-			temp = str(id) + ',' + str(senseid)
-			answers.append(temp)
-	return answers
 
 
 #returns the wordnet definitions of all of the synonyms of the sense
@@ -235,8 +224,8 @@ def best_sense_entire_context(final_word,sentence,target_dictionary, N):
 
 
 if __name__ == '__main__':
-	data = get_test_data()
-	#data = get_training_data()
+	#data = get_test_data()
+	data = get_training_data()
 	f=open('output_file11.txt','w')
 	f.write("Id,Prediction\n")
 	for word in data:
@@ -265,8 +254,9 @@ if __name__ == '__main__':
 			from_wordnet = from_wordnet + wordnet_to_reg(get_dict_senses(final_word), target_dictionary[item])
 		if len(from_wordnet) > 1:
 			top_matches += random.choice(from_wordnet)
+		else:
+			top_matches += from_wordnet[0]
 		final_name = word + "," + top_matches + "\n"
 		f.write(final_name)
 	f.close()
 	print "done"
-
