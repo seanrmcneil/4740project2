@@ -57,6 +57,18 @@ def get_dict_senses(word):
 	#can return the item later too if needed. ("word.pos")
 	return sense_dict
 
+def get_dict_synsets(word):
+	for child in root:
+		synsets = []
+		name = child.get('item')
+		if name == word:
+			for sense in child.iter("sense"):
+				for words in sense.attrib['synset'].split(" "):
+					if words not in synsets:
+						synsets.append(words)
+	return synsets
+
+
 def get_test_data():
 	test_data = collections.OrderedDict()
 	for child in root2:
@@ -101,9 +113,15 @@ def get_training_data():
 def get_wordnet(word):
 	word_net_dict = {}
 	for each_word in wn.synsets(word):
-
 		word_net_dict[each_word] = each_word.definition()
 	return word_net_dict
+
+def get_wordnet_synsets(word):
+	synsets = []
+	for eachword in wn.synsets(word):
+		synsets.append(eachword)
+	return synsets
+
 
 def wordnet_to_reg(target_dictionary,context_definition):
 	context_word_set = context_definition.split(" ")
@@ -135,10 +153,11 @@ def best_sense(target_word, context_word,target_dictionary):
 	best_context_sense = {}
 	for target_sense, target_definitions in target_dictionary.iteritems():
 		target_word_set = target_definitions.split(" ")
-		target_word_set = [stem(x).lower() for x in target_word_set]
+		#to put stemming back in do stem(x).lower()
+		target_word_set = [(x).lower() for x in target_word_set]
 		for context_sense, context_definitions in context_dictionary.iteritems():
 			context_word_set = context_definitions.split(" ")
-			context_word_set = [stem(x).lower() for x in context_word_set]
+			context_word_set = [(x).lower() for x in context_word_set]
 			similar_words =  set(target_word_set).intersection(context_word_set)
 			overlap = len(similar_words)
 			consecutive_overlap = 0
@@ -148,7 +167,7 @@ def best_sense(target_word, context_word,target_dictionary):
 					context_index = context_word_set.index(i)
 					if target_index < len(target_word_set)-1 and context_index < len(context_word_set)-1:
 						if target_word_set[target_index+1] == context_word_set[context_index+1]:
-							consecutive_overlap = consecutive_overlap +1
+							consecutive_overlap = consecutive_overlap + 2
 			temp_score = float(overlap + consecutive_overlap)/float(len(target_word))
 			best_target_sense[target_sense] = temp_score
 			new_number = 0
@@ -222,11 +241,22 @@ def best_sense_entire_context(final_word,sentence,target_dictionary, N):
 
 	return scoring
 
+def best_synsets(from_wordnet):
+	overall_score = 0
+	score = 0
+	for winners in from_wordnet:
+		for word in get_dict_synsets(winners):
+			if word in get_wordnet_synsets(winners[:-2]):
+				score = score + 1
+		if score >= overall_score:
+			winner = winners
+			overall_score = score
+	return winner
 
 if __name__ == '__main__':
-	#data = get_test_data()
-	data = get_training_data()
-	f=open('output_file11.txt','w')
+	data = get_test_data()
+	#data = get_training_data()
+	f=open('output_file5.txt','w')
 	f.write("Id,Prediction\n")
 	for word in data:
 		wordy = word.partition(".")
@@ -244,7 +274,7 @@ if __name__ == '__main__':
 		finals = []
 		for item in scoring:
 			if scoring[item] >= top_score:
-				top_score = scoring[item] 
+				top_score = scoring[item]
 		for item in scoring:
 			if scoring[item] == top_score:
 				finals.append(item)
@@ -253,7 +283,8 @@ if __name__ == '__main__':
 		for item in finals:
 			from_wordnet = from_wordnet + wordnet_to_reg(get_dict_senses(final_word), target_dictionary[item])
 		if len(from_wordnet) > 1:
-			top_matches += random.choice(from_wordnet)
+			#choose a top word by comparing the dictionary synonyms with wordnet synonyms for greatest overlap
+			top_matches += best_synsets(from_wordnet)
 		else:
 			top_matches += from_wordnet[0]
 		final_name = word + "," + top_matches + "\n"

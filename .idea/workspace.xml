@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5dc1eeb4-daa7-4e90-b8bc-d84bca08afc3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/check_answers.py" afterPath="$PROJECT_DIR$/check_answers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/word_disamb.py" afterPath="$PROJECT_DIR$/word_disamb.py" />
     </list>
     <ignored path="4740project2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,43 +24,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="word_disam.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/word_disam.py">
+      <file leaf-file-name="Dictionary.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dictionary.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+              <caret line="279" column="80" selection-start-line="279" selection-start-column="80" selection-end-line="279" selection-end-column="80" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="word_disamb.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="word_disamb.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/word_disamb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="36.74074">
-              <caret line="130" column="15" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="15" />
+            <state vertical-scroll-proportion="11.543767">
+              <caret line="256" column="4" selection-start-line="256" selection-start-column="4" selection-end-line="256" selection-end-column="4" />
               <folding>
-                <marker date="1445731991000" expanded="true" signature="7030:8160" placeholder="..." />
+                <marker date="1445746567000" expanded="true" signature="7760:8989" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="check_answers.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="check_answers.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/check_answers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42307693">
-              <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="output_file2" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/output_file2">
+      <file leaf-file-name="output_file5.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/output_file5.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1848" column="0" selection-start-line="1848" selection-start-column="0" selection-end-line="1848" selection-end-column="0" />
+              <caret line="7028" column="0" selection-start-line="7028" selection-start-column="0" selection-end-line="7028" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -102,8 +103,10 @@
         <option value="$PROJECT_DIR$/test-data.data" />
         <option value="$PROJECT_DIR$/output_file11.txt" />
         <option value="$PROJECT_DIR$/output_file2" />
-        <option value="$PROJECT_DIR$/word_disamb.py" />
+        <option value="$PROJECT_DIR$/output_file6.txt" />
+        <option value="$PROJECT_DIR$/output_file5.txt" />
         <option value="$PROJECT_DIR$/check_answers.py" />
+        <option value="$PROJECT_DIR$/word_disamb.py" />
       </list>
     </option>
   </component>
@@ -111,10 +114,9 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1331" />
     <option name="y" value="23" />
-    <option name="width" value="1253" />
-    <option name="height" value="704" />
+    <option name="width" value="1280" />
+    <option name="height" value="660" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -397,18 +399,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1331" y="23" width="1253" height="704" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="660" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979855" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13392857" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1310564" sideWeight="0.7708333" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990307" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4039088" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24210526" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1310564" sideWeight="0.22916667" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -451,7 +453,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1445731991000" expanded="true" signature="7030:8160" placeholder="..." />
+            <marker date="1445746567000" expanded="true" signature="7760:8989" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -477,7 +479,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1445731991000" expanded="true" signature="7030:8160" placeholder="..." />
+            <marker date="1445746567000" expanded="true" signature="7760:8989" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -503,7 +505,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
           <folding>
-            <marker date="1445731991000" expanded="true" signature="7030:8160" placeholder="..." />
+            <marker date="1445746567000" expanded="true" signature="7760:8989" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -711,26 +713,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dictionary.xml">
+    <entry file="file://$PROJECT_DIR$/training-data.data">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.0812182">
-          <caret line="279" column="80" selection-start-line="279" selection-start-column="80" selection-end-line="279" selection-end-column="80" />
+        <state vertical-scroll-proportion="-15779.444">
+          <caret line="28403" column="91" selection-start-line="28403" selection-start-column="91" selection-end-line="28403" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output_file2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1848" column="0" selection-start-line="1848" selection-start-column="0" selection-end-line="1848" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/word_disam.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.6331363">
+          <caret line="81" column="16" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/training-data.data">
+    <entry file="file://$PROJECT_DIR$/output_file9.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15779.444">
-          <caret line="28403" column="91" selection-start-line="28403" selection-start-column="91" selection-end-line="28403" selection-end-column="91" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -743,29 +753,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/word_disamb.py">
+    <entry file="file://$PROJECT_DIR$/Dictionary.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="36.74074">
-          <caret line="130" column="15" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="15" />
-          <folding>
-            <marker date="1445731991000" expanded="true" signature="7030:8160" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="279" column="80" selection-start-line="279" selection-start-column="80" selection-end-line="279" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output_file2">
+    <entry file="file://$PROJECT_DIR$/output_file6.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1848" column="0" selection-start-line="1848" selection-start-column="0" selection-end-line="1848" selection-end-column="0" />
+          <caret line="2078" column="0" selection-start-line="2078" selection-start-column="0" selection-end-line="2078" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output_file8.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="234.00494">
+          <caret line="7861" column="0" selection-start-line="7861" selection-start-column="0" selection-end-line="7861" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output_file5.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7028" column="0" selection-start-line="7028" selection-start-column="0" selection-end-line="7028" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/check_answers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42307693">
-          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/word_disamb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="11.543767">
+          <caret line="256" column="4" selection-start-line="256" selection-start-column="4" selection-end-line="256" selection-end-column="4" />
+          <folding>
+            <marker date="1445746567000" expanded="true" signature="7760:8989" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

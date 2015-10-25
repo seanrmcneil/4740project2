@@ -34,4 +34,4 @@ def compare_answers(output_file):
 		print float(correct)/float(len(answers))
 
 
-compare_answers("output_file11.txt")
+compare_answers("output_file5.txt")
