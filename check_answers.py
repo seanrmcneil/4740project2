@@ -5,7 +5,7 @@ tree3 = ET.parse('training-data.data')
 root3 = tree3.getroot()
 
 def get_training_answers():
-	answers = []
+	answers = ["Id,Prediction"]
 	for child in root3:
 		for sense in child:
 			id = sense.attrib['id']
@@ -19,17 +19,19 @@ def get_training_answers():
 
 def compare_answers(output_file):
 	with open(output_file) as f:
-		count = 0
 		correct = 0
 		answers = get_training_answers()
-		answers.append("")
+
+		line1 = []
 		for line in f:
-			if str(answers[count]) in str(line):
-				correct = correct + 1
-			count = count + 1
+			line1.append(line)
+
+		for i in xrange(0, len(answers)):
+			if answers[i] in line1[i]:
+				correct = correct +1
 
 		print correct
-		print len(answers)
-		print correct/len(answers)
+		print float(correct)/float(len(answers))
+
 
 compare_answers("output_file11.txt")
